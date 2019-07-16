@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Service(value = "employeeService")
+//@Service(value = "employeeService")
 public class EmployeeServiceImpl implements EmployeeService {
 
-    @Autowired( required = true)
-    @Qualifier(value = "mysqlDAOImpl")
+    //@Autowired( required = true)
+    //@Qualifier(value = "mysqlDAOImpl")
     private EmployeeDAO employeeDAO;
 
     public EmployeeServiceImpl(@Qualifier(value = "mysqlDAOImpl")EmployeeDAO employeeDAO){
