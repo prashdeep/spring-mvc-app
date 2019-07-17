@@ -2,6 +2,7 @@ package com.sapient.springdemo.model;
 
 import lombok.Data;
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.stereotype.Component;
 
 import javax.validation.constraints.NotEmpty;
@@ -17,8 +18,11 @@ public class Employee {
     @NotEmpty
     private  String name;
     @NotNull
+    @Range(min = 18, max = 58, message = "Age should be between 18 and 58")
     private  int age;
     @NotNull
+    @Range(min =20000, max = 50000, message = "Salary should be between 20000 and 50000")
+
     private double salary;
 
     public Employee(){
