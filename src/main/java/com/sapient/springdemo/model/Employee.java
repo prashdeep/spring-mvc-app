@@ -11,8 +11,9 @@ import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.*;
 import java.io.Serializable;
 
-@XmlRootElement (name = "employee")
-@XmlAccessorType(XmlAccessType.NONE)
+@Data
+@XmlRootElement
+@XmlAccessorType(XmlAccessType.FIELD)
 public class Employee implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -20,15 +21,16 @@ public class Employee implements Serializable {
     private  long id;
 
     @NotEmpty
-    @XmlAttribute
+    @XmlElement(name = "NAME")
     private  String name;
     @NotNull
     @Range(min = 18, max = 58, message = "Age should be between 18 and 58")
-    @XmlAttribute
+    @XmlElement
     private  int age;
+
     @NotNull
     @Range(min =20000, max = 50000, message = "Salary should be between 20000 and 50000")
-    @XmlAttribute
+    @XmlElement
     private double salary;
 
     public Employee(){
@@ -40,27 +42,4 @@ public class Employee implements Serializable {
         this.name = name;
     }
 
-    public long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
-    }
-
-    public double getSalary() {
-        return salary;
-    }
-
-    public void setSalary(double salary) {
-        this.salary = salary;
-    }
 }

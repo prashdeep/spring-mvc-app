@@ -2,6 +2,8 @@ package com.sapient.springdemo.controller;
 
 import com.sapient.springdemo.model.Employee;
 import com.sapient.springdemo.model.EmployeeList;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiParam;
 import javafx.application.Application;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -25,6 +27,7 @@ public class RegisterController {
     }*/
 
     @GetMapping(value = "/employees", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    @ApiOperation(value = "Fetch all employees", notes = "API to fetch all the employees")
     @ResponseStatus(HttpStatus.OK)
     public EmployeeList displayAllEmployees(){
         List<Employee> empList = new ArrayList<>();
@@ -38,7 +41,9 @@ public class RegisterController {
 
     @GetMapping(value = "/employees/{id}", produces = {MediaType.APPLICATION_JSON_VALUE , MediaType.APPLICATION_XML_VALUE })
     @ResponseStatus(HttpStatus.OK)
-    public Employee displayEmployee(@PathVariable("id") int id){
+    public Employee displayEmployee(
+            @ApiParam(value = "${EmployeeController.getEmployeeById}", required = true)
+            @PathVariable("id") int id){
 
         Employee employee = new Employee(id, "Vinay");
 
