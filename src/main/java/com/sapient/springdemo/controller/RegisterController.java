@@ -24,7 +24,7 @@ public class RegisterController {
         return "login";
     }*/
 
-    @GetMapping(value = "/", produces = {"application/xml"})
+    @GetMapping(value = "/", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     @ResponseStatus(HttpStatus.OK)
     public List<Employee> displayAllEmployees(){
         List<Employee> empList = new ArrayList<>();
@@ -60,14 +60,11 @@ public class RegisterController {
         return "success";
     }*/
 
-    @PostMapping(value = "/", consumes = "application/xml")
+    @PostMapping(value = "/", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.CREATED)
     public void registerEmployee(@Valid @RequestBody Employee employee){
         System.out.println(employee);
-
         System.out.println("Came inside the post method of register employee ....");
-
-
     }
 
 

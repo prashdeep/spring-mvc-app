@@ -67,7 +67,21 @@
           <artifactId>hibernate-validator</artifactId>
           <version>6.0.11.Final</version>
       </dependency>
-
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-core</artifactId>
+          <version>RELEASE</version>
+      </dependency>
+      <dependency>
+          <groupId>com.fasterxml.jackson.core</groupId>
+          <artifactId>jackson-databind</artifactId>
+          <version>RELEASE</version>
+      </dependency>
+      <dependency>
+      <groupId>com.fasterxml.jackson.core</groupId>
+      <artifactId>jackson-annotations</artifactId>
+      <version>RELEASE</version>
+      </dependency>
   </dependencies>
 
   <build>
