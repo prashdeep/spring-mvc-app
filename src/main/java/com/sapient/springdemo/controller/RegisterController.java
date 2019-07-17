@@ -36,4 +36,12 @@ public class RegisterController {
         model.addAttribute("employee", employee);
         return "employee";
     }
+
+    @GetMapping("/register")
+    public String registerEmployee(Model model){
+        model.addAttribute("employee", new Employee());
+        return "register";
+    }
+
+
 }

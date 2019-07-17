@@ -4,10 +4,14 @@ import lombok.Data;
 
 @Data
 public class Employee {
-    private final long id;
-    private final String name;
+    private  long id;
+    private  String name;
     private  int age;
     private double salary;
+
+    public Employee(){
+
+    }
 
     public Employee(long id, String name) {
         this.id = id;
