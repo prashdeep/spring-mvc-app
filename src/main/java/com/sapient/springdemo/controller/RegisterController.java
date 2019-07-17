@@ -2,23 +2,23 @@ package com.sapient.springdemo.controller;
 
 import com.sapient.springdemo.model.Employee;
 import com.sapient.springdemo.model.EmployeeList;
+import com.sapient.springdemo.service.EmployeeService;
 import io.swagger.annotations.ApiOperation;
 import io.swagger.annotations.ApiParam;
-import javafx.application.Application;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
-import java.util.List;
 import java.util.ArrayList;
+import java.util.List;
 
 //@Controller
 @RestController
 public class RegisterController {
+
+    @Autowired
+    private EmployeeService employeeService;
 
     /*@GetMapping("/login")
     public String login(){
@@ -47,7 +47,7 @@ public class RegisterController {
 
         Employee employee = new Employee(id, "Vinay");
 
-        return employee;
+        return employeeService.findById(id);
     }
 
     /*@GetMapping("/register")
@@ -71,6 +71,7 @@ public class RegisterController {
     @ResponseStatus(HttpStatus.CREATED)
     public void registerEmployee(@Valid @RequestBody Employee employee){
         System.out.println(employee);
+        employeeService.saveEmployee(employee);
         System.out.println("Came inside the post method of register employee ....");
     }
 
