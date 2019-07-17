@@ -1,12 +1,24 @@
 package com.sapient.springdemo.model;
 
 import lombok.Data;
+import org.hibernate.validator.constraints.Length;
+import org.springframework.stereotype.Component;
+
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 
 @Data
+@Component
 public class Employee {
+
     private  long id;
+
+    @NotEmpty
     private  String name;
+    @NotNull
     private  int age;
+    @NotNull
     private double salary;
 
     public Employee(){

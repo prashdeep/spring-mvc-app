@@ -3,8 +3,10 @@ package com.sapient.springdemo.controller;
 import com.sapient.springdemo.model.Employee;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -43,9 +45,13 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String registerEmployee(@ModelAttribute("employee") Employee employee){
+    public String registerEmployee(@Valid @ModelAttribute("employee") Employee employee, BindingResult result){
         System.out.println(employee);
+
         System.out.println("Came inside the post method of register employee ....");
+        if(result.hasErrors()){
+            return "register";
+        }
         return "success";
     }
 

@@ -20,15 +20,15 @@
     <form:form action="/emp-mvc/employee/register" method="POST" modelAttribute="employee">
         <div class="form-group">
             <label>Name:</label><form:input path="name" size="30" cssClass="form-control" placeholder="Enter name" />
-            <small><form:errors path="name" cssClass="errormsg" /></small>
+            <small><form:errors path="name" cssClass="error" /></small>
         </div>
         <div class="form-group">
             <label>Age:</label><form:input path="age" cssClass="form-control" placeholder="Enter age" />
-            <small><form:errors path="age" cssClass="errormsg" /></small>
+            <small><form:errors path="age" cssClass="error" /></small>
         </div>
         <div class="form-group">
             <label>Salary:</label><form:input path="salary" cssClass="form-control" placeholder="Enter Salary" />
-            <small><form:errors path="salary" cssClass="errormsg" /></small>
+            <small><form:errors path="salary" cssClass="error" /></small>
         </div>
         <div class="form-group">
             <button type="submit" >Submit</button>
