@@ -1,6 +1,7 @@
 package com.sapient.springdemo.controller;
 
 import com.sapient.springdemo.model.Employee;
+import com.sapient.springdemo.model.EmployeeList;
 import javafx.application.Application;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -15,7 +16,6 @@ import java.util.ArrayList;
 
 //@Controller
 @RestController
-@RequestMapping("/employees")
 public class RegisterController {
 
     /*@GetMapping("/login")
@@ -24,17 +24,19 @@ public class RegisterController {
         return "login";
     }*/
 
-    @GetMapping(value = "/", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
+    @GetMapping(value = "/employees", produces = { MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE })
     @ResponseStatus(HttpStatus.OK)
-    public List<Employee> displayAllEmployees(){
+    public EmployeeList displayAllEmployees(){
         List<Employee> empList = new ArrayList<>();
         empList.add(new Employee(1, "Vinay"));
         empList.add(new Employee(2, "Harish"));
         //model.addAttribute("empList", empList);
-        return empList;
+        EmployeeList employeeList = new EmployeeList();
+        employeeList.setEmployees(empList);
+        return employeeList;
     }
 
-    @GetMapping(value = "/{id}", produces = {"application/xml"})
+    @GetMapping(value = "/employees/{id}", produces = {MediaType.APPLICATION_JSON_VALUE , MediaType.APPLICATION_XML_VALUE })
     @ResponseStatus(HttpStatus.OK)
     public Employee displayEmployee(@PathVariable("id") int id){
 
@@ -60,7 +62,7 @@ public class RegisterController {
         return "success";
     }*/
 
-    @PostMapping(value = "/", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
+    @PostMapping(value = "/employees", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.CREATED)
     public void registerEmployee(@Valid @RequestBody Employee employee){
         System.out.println(employee);
