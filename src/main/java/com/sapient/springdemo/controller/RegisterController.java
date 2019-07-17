@@ -43,7 +43,8 @@ public class RegisterController {
     }
 
     @PostMapping("/register")
-    public String registerEmployee(){
+    public String registerEmployee(@ModelAttribute("employee") Employee employee){
+        System.out.println(employee);
         System.out.println("Came inside the post method of register employee ....");
         return "success";
     }
