@@ -3,9 +3,8 @@ package com.sapient.springdemo.controller;
 import com.sapient.springdemo.model.Employee;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 import java.util.ArrayList;
 
@@ -38,9 +37,15 @@ public class RegisterController {
     }
 
     @GetMapping("/register")
-    public String registerEmployee(Model model){
+    public String registrationPage(Model model){
         model.addAttribute("employee", new Employee());
         return "register";
+    }
+
+    @PostMapping("/register")
+    public String registerEmployee(){
+        System.out.println("Came inside the post method of register employee ....");
+        return "success";
     }
 
 

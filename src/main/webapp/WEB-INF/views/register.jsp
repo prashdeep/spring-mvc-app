@@ -17,7 +17,7 @@
     <hr />
     <div> </div>
 
-    <form:form action="/emp-mvc/register" method="POST" modelAttribute="employee">
+    <form:form action="/emp-mvc/employee/register" method="POST" modelAttribute="employee">
         <div class="form-group">
             <label>Name:</label><form:input path="name" size="30" cssClass="form-control" placeholder="Enter name" />
             <small><form:errors path="name" cssClass="errormsg" /></small>
