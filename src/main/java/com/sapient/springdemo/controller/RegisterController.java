@@ -48,6 +48,7 @@ public class RegisterController {
 
     @GetMapping(value = "/employees/{id}", produces = {MediaType.APPLICATION_JSON_VALUE , MediaType.APPLICATION_XML_VALUE })
     @ResponseStatus(HttpStatus.OK)
+    @ExceptionHandler({IllegalArgumentException.class})
     public Employee displayEmployee(
             @ApiParam(value = "${EmployeeController.getEmployeeById}", required = true)
             @PathVariable("id") int id){
