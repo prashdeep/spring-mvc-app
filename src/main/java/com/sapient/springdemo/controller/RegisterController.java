@@ -92,7 +92,9 @@ public class RegisterController {
         details.setCity("Bangalore");
         details.setState("Karnataka");
         details.setZipCode("577142");
+
         employee.setEmployeeDetails(details);
+
         Employee saveEmployee = employeeService.saveEmployee(employee);
         System.out.println("Came inside the post method of register employee ....");
         return saveEmployee;
