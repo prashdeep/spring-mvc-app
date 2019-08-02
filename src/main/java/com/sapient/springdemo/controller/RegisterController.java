@@ -77,6 +77,7 @@ public class RegisterController {
 
     @PostMapping(value = "/employees", consumes = {MediaType.APPLICATION_JSON_VALUE, MediaType.APPLICATION_XML_VALUE})
     @ResponseStatus(HttpStatus.CREATED)
+
     public Employee registerEmployee(@Valid @RequestBody Employee employee){
         System.out.println(employee);
         Dependent dependent = new Dependent();
